@@ -269,6 +269,7 @@ public class Main {
                 }
                 if (processos.get(index).getTempo_restante() == 0) {
                     index++;
+                    i = -1;
                 } else {
                     processos.get(index).tempoRestanteDecremento();
                     calcTempoEspera(processos, processos.get(index), ut, alg);
@@ -276,6 +277,9 @@ public class Main {
                     tempo_exec--;
                     ut++;
                     delay();
+                }
+                if (tempo_exec == 0) {
+                    break;
                 }
             }
             index++;
